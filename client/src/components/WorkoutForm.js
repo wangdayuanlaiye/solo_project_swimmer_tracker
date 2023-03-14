@@ -49,32 +49,36 @@ const WorkoutForm = () => {
   return (
     <form className="create" onSubmit={handleSubmit}>
       <div className="create-from">
-        <h3>Add a New Order</h3>
-        <label>Excersize Title:</label>
+        <h3>Add New Swimming Record</h3>
+        <label>Swimming Style:</label>
         <input 
           type="text"
+
           onChange={(e) => setTitle(e.target.value)}
           value={title}
           className={emptyFields.includes('title') ? 'error' : ''}
         />
 
-        <label>Load (in kg):</label>
+        <label>Swimmer Weight (kg):</label>
         <input 
           type="number"
+          step="0.25"
+          min="0"
           onChange={(e) => setLoad(e.target.value)}
           value={load}
           className={emptyFields.includes('load') ? 'error' : ''}
         />
 
-        <label>Price:</label>
+        <label>Laps:</label>
         <input 
           type="number"
+          min="0"
           onChange={(e) => setReps(e.target.value)}
           value={reps}
           className={emptyFields.includes('reps') ? 'error' : ''}
         />
 
-        <button>Add Order</button>
+        <button>Add Record</button>
         {error && <div className="error">{error}</div>}        
       </div>
     </form>

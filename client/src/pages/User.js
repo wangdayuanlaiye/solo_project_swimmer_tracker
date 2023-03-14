@@ -3,12 +3,14 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import { useAuthContext } from "../hooks/useAuthContext"
 
 // components
-import WorkoutDetails from '../components/WorkoutDetails'
+// import WorkoutDetails from '../components/WorkoutDetails'
 import UserUpdateForm from '../components/UserUpdateForm'
 
 const User = () => {
-  const {workouts, dispatch} = useWorkoutsContext()
-  const {user, userinfo} = useAuthContext()
+  // const {workouts, dispatch} = useWorkoutsContext()
+  // const {user, userinfo} = useAuthContext()
+  const {user} = useAuthContext()
+  const {dispatch} = useWorkoutsContext()
 
   useEffect(() => {
     const fetchWorkouts = async () => {

@@ -76,14 +76,6 @@ const UpdateUserInfo = () => {
           className={emptyFields.includes('address') ? 'error' : ''}
         />
 
-        <label>Confirm PW:</label>
-        <input 
-          type="text"
-          onChange={(e) => setConfirmPW(e.target.value)}
-          value={confirmPW}
-          className={emptyFields.includes('confirmPW') ? 'error' : ''}
-        />
-
         <label>Email:</label>
         <input 
           type="text"
@@ -98,6 +90,14 @@ const UpdateUserInfo = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
           className={emptyFields.includes('password') ? 'error' : ''}
+        />
+        
+        <label>Confirm PW:</label>
+        <input 
+          type="text"
+          onChange={(e) => setConfirmPW(e.target.value)}
+          value={confirmPW}
+          className={emptyFields.includes('confirmPW') ? 'error' : ''}
         />
 
         <button>Update User Info</button>

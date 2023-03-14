@@ -4,7 +4,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 
 // date fns
 import formatDistanceToNow from 'date-fns/formatDistanceToNow'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const getQueryString = (name) => {
   var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
@@ -16,7 +16,7 @@ const getQueryString = (name) => {
 }
 
 const WorkoutDetails = ({request}) => {
-  const {workouts, dispatch} = useWorkoutsContext()
+  const {dispatch} = useWorkoutsContext()
   const [workout, setWorkout] = useState()
   const {user} = useAuthContext()
 
@@ -43,10 +43,10 @@ const WorkoutDetails = ({request}) => {
   if(workout) {
     return (
       <div className="workout-details">
-        <h2 style={{margin: 0}}>Order History</h2>
-        <p><strong>Title</strong>{workout.title}</p>
-        <p><strong>Load (kg)</strong>{workout.load}</p>
-        <p><strong>Price</strong>{workout.reps}</p>
+        <h2 style={{margin: 0}}>Record Tracker</h2>
+        <p><strong>Style</strong>{workout.title}</p>
+        <p><strong>Weight (kg)</strong>{workout.load}</p>
+        <p><strong>Laps</strong>{workout.reps}</p>
         <p><strong>Create time</strong>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</p>
         <br />
         <hr />
@@ -54,7 +54,6 @@ const WorkoutDetails = ({request}) => {
         <p><strong>Name</strong>{user.userinfo.name || ''}</p>
         <p><strong>Email</strong>{user.userinfo.email || ''}</p>
         <p><strong>Address</strong>{user.userinfo.address || ''}</p>
-        <p><strong>Confirm PW</strong>{user.userinfo.confirmPW || ''}</p>
       </div>
     )
   } else {
