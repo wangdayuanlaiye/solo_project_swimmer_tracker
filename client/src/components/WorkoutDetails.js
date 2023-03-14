@@ -29,9 +29,9 @@ const WorkoutDetails = ({ workout }) => {
 
   return (
     <div className="workout-details">
-      <Link to={"/order?id=" + workout._id}><h4>{workout.title}</h4></Link>
-      <p><strong>Weight (kg)</strong>{workout.load}</p>
-      <p><strong>Laps</strong>{workout.reps}</p>
+      <Link to={"/order?id=" + workout._id}><h4>{workout.style}</h4></Link>
+      <p><strong>Weight (kg)</strong>{workout.weight}</p>
+      <p><strong>Laps</strong>{workout.laps}</p>
       <p><strong>Create time</strong>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</p>
       <span className="material-symbols-outlined" onClick={clickDelete}>delete</span>
     </div>

@@ -30,18 +30,18 @@ const getWorkout = async (req, res) => {
 
 // create new workout
 const createWorkout = async (req, res) => {
-  const {title, load, reps} = req.body
+  const {style, weight, laps} = req.body
 
   let emptyFields = []
 
-  if(!title) {
-    emptyFields.push('title')
+  if(!style) {
+    emptyFields.push('style')
   }
-  if(!load) {
-    emptyFields.push('load')
+  if(!weight) {
+    emptyFields.push('weight')
   }
-  if(!reps) {
-    emptyFields.push('reps')
+  if(!laps) {
+    emptyFields.push('laps')
   }
   if(emptyFields.length > 0) {
     return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
@@ -50,7 +50,7 @@ const createWorkout = async (req, res) => {
   // add doc to db
   try {
     const user_id = req.user._id
-    const workout = await Workout.create({title, load, reps, user_id})
+    const workout = await Workout.create({style, weight, laps, user_id})
     res.status(200).json(workout)
   } catch (error) {
     res.status(400).json({error: error.message})

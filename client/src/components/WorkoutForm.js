@@ -6,9 +6,9 @@ const WorkoutForm = () => {
   const { dispatch } = useWorkoutsContext()
   const { user } = useAuthContext()
 
-  const [title, setTitle] = useState('')
-  const [load, setLoad] = useState('')
-  const [reps, setReps] = useState('')
+  const [style, setStyle] = useState('')
+  const [weight, setWeight] = useState('')
+  const [laps, setLaps] = useState('')
   const [error, setError] = useState(null)
   const [emptyFields, setEmptyFields] = useState([])
 
@@ -20,7 +20,7 @@ const WorkoutForm = () => {
       return
     }
 
-    const workout = {title, load, reps}
+    const workout = {style, weight, laps}
 
     const response = await fetch('/api/workouts', {
       method: 'POST',
@@ -37,9 +37,9 @@ const WorkoutForm = () => {
       setEmptyFields(json.emptyFields)
     }
     if (response.ok) {
-      setTitle('')
-      setLoad('')
-      setReps('')
+      setStyle('')
+      setWeight('')
+      setLaps('')
       setError(null)
       setEmptyFields([])
       dispatch({type: 'CREATE_WORKOUT', payload: json})
@@ -54,8 +54,8 @@ const WorkoutForm = () => {
         <input 
           type="text"
 
-          onChange={(e) => setTitle(e.target.value)}
-          value={title}
+          onChange={(e) => setStyle(e.target.value)}
+          value={style}
           className={emptyFields.includes('title') ? 'error' : ''}
         />
 
@@ -64,8 +64,8 @@ const WorkoutForm = () => {
           type="number"
           step="0.25"
           min="0"
-          onChange={(e) => setLoad(e.target.value)}
-          value={load}
+          onChange={(e) => setWeight(e.target.value)}
+          value={weight}
           className={emptyFields.includes('load') ? 'error' : ''}
         />
 
@@ -73,8 +73,8 @@ const WorkoutForm = () => {
         <input 
           type="number"
           min="0"
-          onChange={(e) => setReps(e.target.value)}
-          value={reps}
+          onChange={(e) => setLaps(e.target.value)}
+          value={laps}
           className={emptyFields.includes('reps') ? 'error' : ''}
         />
 

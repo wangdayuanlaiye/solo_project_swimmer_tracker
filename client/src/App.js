@@ -7,7 +7,7 @@ import User from './pages/User'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Navbar from './components/Navbar'
-import OrderDetails from './components/OrderDetails'
+import OrderDetails from './components/HomepageDetails'
 
 function App() {
   const { user } = useAuthContext()

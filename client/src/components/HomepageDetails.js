@@ -44,9 +44,9 @@ const WorkoutDetails = ({request}) => {
     return (
       <div className="workout-details">
         <h2 style={{margin: 0}}>Record Tracker</h2>
-        <p><strong>Style</strong>{workout.title}</p>
-        <p><strong>Weight (kg)</strong>{workout.load}</p>
-        <p><strong>Laps</strong>{workout.reps}</p>
+        <p><strong>Style</strong>{workout.style}</p>
+        <p><strong>Weight (kg)</strong>{workout.weight}</p>
+        <p><strong>Laps</strong>{workout.laps}</p>
         <p><strong>Create time</strong>{formatDistanceToNow(new Date(workout.createdAt), { addSuffix: true })}</p>
         <br />
         <hr />
